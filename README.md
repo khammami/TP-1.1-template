@@ -2,7 +2,7 @@
 
 ## Créer et exécuter une application
 
-* Créer un nouveau projet Android à partir du modèle vide.
+* Créer un nouveau projet Android à partir du modèle vide **Empty Views Activity**.
 
 * Ajouter des instructions de journalisation pour différents niveaux dans `onCreate()` dans l'activité principale.
 
