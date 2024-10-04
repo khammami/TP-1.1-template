@@ -81,6 +81,7 @@ jobs:
       - name: Create file for setting env vars
         # https://github.com/education/autograding/issues/69#issuecomment-1497674655
         # https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions#using-secrets-in-a-workflow
+        # Define ANSWERS_SECRET_PASSPHRASE under your org secrets
         env:
           ANSWERS_SECRET_PASSPHRASE: ${{ secrets.ANSWERS_SECRET_PASSPHRASE }}
         run: |
@@ -112,7 +113,7 @@ jobs:
           test-name: Q1
           setup-command: ". ./setenv.sh && ./.github/scripts/decrypt_answers.sh"
           command: ". ./setenv.sh && ./.github/scripts/check_questions.sh 1"
-          timeout:
+          timeout: 1
           max-score: 1
 
       - name: Q2
@@ -144,3 +145,14 @@ jobs:
           command: ". ./setenv.sh && ./.github/scripts/check_questions.sh 4"
           timeout: 1
           max-score: 1
+
+      - name: Autograding Reporter
+        uses: classroom-resources/autograding-grading-reporter@v1
+        env:
+          BUILD-DEBUG_RESULTS: "${{steps.build-debug.outputs.result}}"
+          Q1_RESULTS: "${{steps.q1.outputs.result}}"
+          Q2_RESULTS: "${{steps.q2.outputs.result}}"
+          Q3_RESULTS: "${{steps.q3.outputs.result}}"
+          Q4_RESULTS: "${{steps.q4.outputs.result}}"
+        with:
+          runners: build-debug,q1,q2,q3,q4

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#readme_path="README.md"
+readme_file="$README_PATH"/README.md
 total_score=0
 
 # Function to check and grade a single question
@@ -11,7 +11,7 @@ check_question() {
   local exit_on_fail="$4"
 
   # Extract question
-  question_text=$(grep -i -E "\*\*Q$question_nbr\.\*\*.*\?$" "$README_PATH"/README.md)
+  question_text=$(grep -i -E "\*\*Q$question_nbr\.\*\*.*\?$" "${readme_file}")
 
   # Pre-process student response to extract relevant lines
   student_q_response=$(grep -A 5 ".*$question_nbr" <<<"$student_response" | grep -i "\[X\]")
@@ -87,7 +87,7 @@ readarray -t answers <.github/assets/answers.txt
 nbQuestions=${#answers[@]}
 
 # Read the student responses from the README.md file
-student_responses=$(grep -i -E -A 5 "\*\*A[0-9]+\.\*\*.*\:$" ${readme_path})
+student_responses=$(grep -i -E -A 5 "\*\*A[0-9]+\.\*\*.*\:$" "${readme_file}")
 
 if [ $# -eq 0 ]; then
   # Loop through each question and grade
