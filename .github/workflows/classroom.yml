@@ -18,9 +18,7 @@ concurrency:
 
 env:
   ANDROID_APP_PATH: "application"
-  README_PATH: ""
-  IMG_API_LEVEL: 29
-  AVD_NAME: "test"
+  README_PATH: "."
 
 jobs:
   check-android-project:
@@ -114,7 +112,7 @@ jobs:
           test-name: Q1
           setup-command: ". ./setenv.sh && ./.github/scripts/decrypt_answers.sh"
           command: ". ./setenv.sh && ./.github/scripts/check_questions.sh 1"
-          timeout: 
+          timeout:
           max-score: 1
 
       - name: Q2
@@ -146,5 +144,3 @@ jobs:
           command: ". ./setenv.sh && ./.github/scripts/check_questions.sh 4"
           timeout: 1
           max-score: 1
-
-
