@@ -117,7 +117,7 @@ jobs:
           setup-command: ""
           command: ". ./setenv.sh && ./$ANDROID_APP_PATH/gradlew :app:assembleDebug --stacktrace -p $ANDROID_APP_PATH"
           timeout: 5
-          max-score: 1
+          max-score: 5
 
       - name: Q1
         id: q1
