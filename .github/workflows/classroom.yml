@@ -115,7 +115,7 @@ jobs:
         with:
           test-name: Build Debug
           setup-command: ""
-          command: ". ./setenv.sh && ./$ANDROID_APP_PATH/gradlew :app:assembleDebug --stacktrace --scan -p $ANDROID_APP_PATH"
+          command: ". ./setenv.sh && ./$ANDROID_APP_PATH/gradlew :app:assembleDebug --stacktrace -p $ANDROID_APP_PATH"
           timeout: 5
           max-score: 1
 
