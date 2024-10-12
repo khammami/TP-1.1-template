@@ -107,6 +107,12 @@ jobs:
           echo "export DEVELOCITY_INJECTION_ENABLED=\"$DEVELOCITY_INJECTION_ENABLED\"" >> setenv.sh
           echo "export DEVELOCITY_PLUGIN_VERSION=\"$DEVELOCITY_PLUGIN_VERSION\"" >> setenv.sh
           echo "export DEVELOCITY_CCUD_PLUGIN_VERSION=\"$DEVELOCITY_CCUD_PLUGIN_VERSION\"" >> setenv.sh
+          echo "export ANDROID_HOME=\"$ANDROID_HOME\"" >> setenv.sh
+          echo "export ANDROID_NDK=\"$ANDROID_NDK\"" >> setenv.sh
+          echo "export ANDROID_NDK_HOME=\"$ANDROID_NDK_HOME\"" >> setenv.sh
+          echo "export ANDROID_NDK_LATEST_HOME=\"$ANDROID_NDK_LATEST_HOME\"" >> setenv.sh
+          echo "export ANDROID_NDK_ROOT=\"$ANDROID_NDK_ROOT\"" >> setenv.sh
+          echo "export ANDROID_SDK_ROOT=\"$ANDROID_SDK_ROOT\"" >> setenv.sh
           chmod +x setenv.sh
 
       - name: Build Debug
