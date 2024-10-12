@@ -88,7 +88,9 @@ jobs:
 
       # Let gradle action handle all cache reated to gradle operations
       - name: Gradle setup/cache
-        uses: gradle/actions/setup-gradle@v3
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          cache-read-only: false
 
       # Create env that need to be injected to child process
       - name: Create file for setting env vars
