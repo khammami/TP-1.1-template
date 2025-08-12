@@ -27,7 +27,7 @@ jobs:
     if: github.actor != 'github-classroom[bot]'
     steps:
       #Get the code
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       # Check if the application folder contains an Android project
       - name: Check for Android project (Exist)
@@ -46,7 +46,7 @@ jobs:
     needs: [check-android-project-exist]
     steps:
       #Get the code
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       # Check if the application folder contains an Android project
       - name: Check for Android project (Java)
@@ -65,7 +65,7 @@ jobs:
     needs: [check-android-project-java]
     steps:
       # Get the code
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       # Enable KVM for emulator
       - name: Enable KVM
